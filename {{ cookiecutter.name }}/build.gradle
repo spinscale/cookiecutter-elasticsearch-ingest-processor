@@ -1,0 +1,46 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+  }
+
+  dependencies {
+    classpath "org.elasticsearch.gradle:build-tools:{{ cookiecutter.elasticsearch_version }}"
+  }
+}
+
+group = 'org.elasticsearch.plugin.ingest'
+version = '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'elasticsearch.esplugin'
+apply plugin: 'com.bmuschko.nexus'
+apply plugin: 'idea'
+
+esplugin {
+  name '{{ cookiecutter.plugin_name }}'
+  description '{{ cookiecutter.description }}'
+  classname '{{ cookiecutter.package_name }}.{{ cookiecutter.class_name_plugin }}'
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+  compile 'org.elasticsearch:elasticsearch:{{ cookiecutter.elasticsearch_version }}'
+
+  testCompile 'org.elasticsearch.test:framework:{{ cookiecutter.elasticsearch_version }}'
+}
+
+// FIXME check style currently returns an error when run, that checkstyle.xml could not be found
+checkstyleMain.enabled = false
+checkstyleTest.enabled = false
+
+// FIXME dependency license check needs to be enabled
+dependencyLicenses.enabled = false
+
+// FIXME thirdparty audit needs to be enabled
+thirdPartyAudit.enabled = false
+
+// Uncomment this to skip license header checks
+// licenseHeaders.enabled = false
+

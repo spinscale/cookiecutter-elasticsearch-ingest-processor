@@ -1,0 +1,13 @@
+{
+  "processor_type" : "awesome",
+  "name": "elasticsearch-ingest-{{ cookiecutter.processor_type }}",
+  "description" : "Ingest processor that is doing some voodoo",
+  "plugin_name" : "ingest-{{ cookiecutter.processor_type }}",
+  "package_name" : "org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }}",
+  "package_path" : "{{ cookiecutter.package_name | replace('.', '/') }}",
+  "class_name_processor" : "{{ cookiecutter.processor_type.capitalize() }}Processor",
+  "class_name_plugin" : "Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin",
+  "class_name_rest_test" : "{{ cookiecutter.processor_type.capitalize() }}RestIT",
+  "developer_name" : "YOUR REAL NAME",
+  "elasticsearch_version" : "5.0.0-alpha1"
+}
