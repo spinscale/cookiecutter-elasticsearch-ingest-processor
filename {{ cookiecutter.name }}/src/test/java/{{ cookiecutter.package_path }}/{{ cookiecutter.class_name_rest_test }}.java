@@ -15,7 +15,7 @@
  *
  */
 
-package {{ cookiecutter.package_name }};
+package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
 
 import com.carrotsearch.randomizedtesting.annotations.Name;
 import com.carrotsearch.randomizedtesting.annotations.ParametersFactory;

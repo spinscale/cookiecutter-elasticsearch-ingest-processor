@@ -15,7 +15,7 @@
  *
  */
 
-package {{ cookiecutter.package_name }};
+package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
 
 import org.elasticsearch.common.Strings;
 import org.elasticsearch.ingest.core.AbstractProcessor;

@@ -15,7 +15,7 @@
  *
  */
 
-package {{ cookiecutter.package_name }};
+package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
 
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.ingest.RandomDocumentPicks;
