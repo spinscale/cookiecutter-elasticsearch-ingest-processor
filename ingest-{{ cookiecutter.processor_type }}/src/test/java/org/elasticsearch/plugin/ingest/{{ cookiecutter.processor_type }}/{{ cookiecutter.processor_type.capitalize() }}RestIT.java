@@ -25,9 +25,9 @@ import org.elasticsearch.test.rest.parser.RestTestParseException;
 
 import java.io.IOException;
 
-public class {{ cookiecutter.class_name_rest_test }} extends ESRestTestCase {
+public class {{ cookiecutter.processor_type.capitalize() }}RestIT extends ESRestTestCase {
 
-    public {{ cookiecutter.class_name_rest_test }}(@Name("yaml") RestTestCandidate testCandidate) {
+    public {{ cookiecutter.processor_type.capitalize() }}RestIT(@Name("yaml") RestTestCandidate testCandidate) {
         super(testCandidate);
     }
 
