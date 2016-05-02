@@ -45,8 +45,8 @@ public class {{ cookiecutter.class_name_plugin }} extends Plugin {
     }
 
     public void onModule(NodeModule nodeModule) throws IOException {
-        nodeModule.registerProcessor({{ cookiecutter.class_name_processor }}.TYPE,
-                (templateService, registry) -> new {{ cookiecutter.class_name_processor }}.Factory());
+        nodeModule.registerProcessor({{ cookiecutter.processor_type.capitalize() }}Processor.TYPE,
+                (templateService, registry) -> new {{ cookiecutter.processor_type.capitalize() }}Processor.Factory());
     }
 
 }
