@@ -1,8 +1,6 @@
 {
   "processor_type" : "awesome",
-  "name": "elasticsearch-ingest-{{ cookiecutter.processor_type }}",
   "description" : "Ingest processor that is doing some voodoo",
-  "plugin_name" : "ingest-{{ cookiecutter.processor_type }}",
   "package_path" : "org/elasticsearch/plugin/ingest/{{ cookiecutter.processor_type }}",
   "class_name_processor" : "{{ cookiecutter.processor_type.capitalize() }}Processor",
   "class_name_plugin" : "Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin",

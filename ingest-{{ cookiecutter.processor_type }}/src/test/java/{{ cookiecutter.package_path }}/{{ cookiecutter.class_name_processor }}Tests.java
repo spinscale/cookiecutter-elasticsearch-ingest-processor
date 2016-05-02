@@ -35,7 +35,7 @@ public class {{ cookiecutter.class_name_processor }}Tests extends ESTestCase {
         Map<String, Object> document = new HashMap<>();
         document.put("source_field", "fancy source field content");
         IngestDocument ingestDocument = RandomDocumentPicks.randomIngestDocument(random(), document);
-        
+
         {{ cookiecutter.class_name_processor }} processor = new {{ cookiecutter.class_name_processor }}(randomAsciiOfLength(10), "source_field", "target_field");
         processor.execute(ingestDocument);
         Map<String, Object> data = ingestDocument.getSourceAndMetadata();

@@ -19,9 +19,9 @@ apply plugin: 'com.bmuschko.nexus'
 apply plugin: 'idea'
 
 esplugin {
-  name '{{ cookiecutter.plugin_name }}'
+  name 'ingest-{{ cookiecutter.processor_type }}'
   description '{{ cookiecutter.description }}'
-  classname 'org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }}.{{ cookiecutter.class_name_plugin }}'
+  classname 'org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type | lower }}.Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin'
 }
 
 // In this section you declare the dependencies for your production and test code

@@ -1,4 +1,4 @@
-"{{ cookiecutter.plugin_name }} plugin installed":
+"ingest-{{ cookiecutter.processor_type }} plugin installed":
     - do:
         cluster.state: {}
 
@@ -7,7 +7,7 @@
     - do:
         nodes.info: {}
 
-    - match:  { nodes.$master.plugins.0.name: {{ cookiecutter.plugin_name }} }
+    - match:  { nodes.$master.plugins.0.name: ingest-{{ cookiecutter.processor_type }} }
     # uncomment the following when you know the order of your processor and adapt accordingly
     #- match:  { nodes.$master.ingest.processors.0.type: append }
     #- match:  { nodes.$master.ingest.processors.1.type: convert }

@@ -50,7 +50,7 @@ This will produce a zip file in `build/distributions`.
 After building the zip file, you can install it like this
 
 ```bash
-bin/plugin install file:///path/to/{{ cookiecutter.plugin_name }}build/distribution/{{ cookiecutter.plugin_name }}-0.0.1-SNAPSHOT.zip
+bin/plugin install file:///path/to/ingest-{{ cookiecutter.processor_type }}/build/distribution/ingest-{{ cookiecutter.processor_type }}-0.0.1-SNAPSHOT.zip
 ```
 
 ## Bugs & TODO
