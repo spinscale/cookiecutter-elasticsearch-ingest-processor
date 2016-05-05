@@ -1,6 +1,6 @@
 {
   "processor_type" : "awesome",
-  "description" : "Ingest processor that is doing some voodoo",
+  "description" : "Ingest processor that is doing something awesome",
   "developer_name" : "YOUR REAL NAME",
-  "elasticsearch_version" : "5.0.0-alpha1"
+  "elasticsearch_version" : "5.0.0-alpha2"
 }
