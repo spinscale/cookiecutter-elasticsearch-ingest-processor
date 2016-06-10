@@ -31,9 +31,9 @@ dependencies {
   testCompile 'org.elasticsearch.test:framework:{{ cookiecutter.elasticsearch_version }}'
 }
 
-// FIXME check style currently returns an error when run, that checkstyle.xml could not be found
-checkstyleMain.enabled = false
-checkstyleTest.enabled = false
+// Uncomment to not use elasticsearch checkstyle rules
+// checkstyleMain.enabled = false
+// checkstyleTest.enabled = false
 
 // FIXME dependency license check needs to be enabled
 dependencyLicenses.enabled = false
