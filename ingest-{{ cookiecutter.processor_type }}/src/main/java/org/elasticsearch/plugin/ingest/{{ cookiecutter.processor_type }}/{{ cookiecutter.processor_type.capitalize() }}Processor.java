@@ -18,15 +18,15 @@
 package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
 
 import org.elasticsearch.common.Strings;
-import org.elasticsearch.ingest.core.AbstractProcessor;
-import org.elasticsearch.ingest.core.AbstractProcessorFactory;
-import org.elasticsearch.ingest.core.IngestDocument;
+import org.elasticsearch.ingest.AbstractProcessor;
+import org.elasticsearch.ingest.AbstractProcessorFactory;
+import org.elasticsearch.ingest.IngestDocument;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static org.elasticsearch.ingest.core.ConfigurationUtils.readOptionalList;
-import static org.elasticsearch.ingest.core.ConfigurationUtils.readStringProperty;
+import static org.elasticsearch.ingest.ConfigurationUtils.readOptionalList;
+import static org.elasticsearch.ingest.ConfigurationUtils.readStringProperty;
 
 public class {{ cookiecutter.processor_type.capitalize() }}Processor extends AbstractProcessor {
 

@@ -23,7 +23,8 @@ import org.elasticsearch.node.NodeModule;
 import org.elasticsearch.plugins.Plugin;
 
 import java.io.IOException;
-import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.List;
 
 public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends Plugin {
 
@@ -31,22 +32,13 @@ public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends 
             new Setting<>("ingest.{{ cookiecutter.processor_type }}.setting", "foo", (value) -> value, Setting.Property.NodeScope);
 
     @Override
-    public String name() {
-        return "ingest-{{ cookiecutter.processor_type }}";
-    }
-
-    @Override
-    public String description() {
-        return "{{ cookiecutter.description }}";
-    }
-
-    public void onModule(SettingsModule settingsModule) {
-        settingsModule.registerSetting(YOUR_SETTING);
+    public List<Setting<?>> getSettings() {
+        return Arrays.asList(YOUR_SETTING);
     }
 
     public void onModule(NodeModule nodeModule) throws IOException {
         nodeModule.registerProcessor({{ cookiecutter.processor_type.capitalize() }}Processor.TYPE,
-                (templateService, registry) -> new {{ cookiecutter.processor_type.capitalize() }}Processor.Factory());
+                (registry) -> new {{ cookiecutter.processor_type.capitalize() }}Processor.Factory());
     }
 
 }

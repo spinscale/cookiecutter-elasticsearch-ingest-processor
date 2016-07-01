@@ -25,6 +25,8 @@ esplugin {
 }
 
 // In this section you declare the dependencies for your production and test code
+// Note, the two dependencies are not really needed as the buildscript dependency gets them in already
+// they are just here as an example
 dependencies {
   compile 'org.elasticsearch:elasticsearch:{{ cookiecutter.elasticsearch_version }}'
 
