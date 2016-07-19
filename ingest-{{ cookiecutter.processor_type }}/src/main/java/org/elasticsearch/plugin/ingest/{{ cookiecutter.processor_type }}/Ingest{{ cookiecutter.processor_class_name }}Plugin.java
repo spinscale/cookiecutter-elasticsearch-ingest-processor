@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends Plugin {
+public class Ingest{{ cookiecutter.processor_class_name }}Plugin extends Plugin {
 
     public static final Setting<String> YOUR_SETTING =
             new Setting<>("ingest.{{ cookiecutter.processor_type }}.setting", "foo", (value) -> value, Setting.Property.NodeScope);
@@ -37,8 +37,8 @@ public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends 
     }
 
     public void onModule(NodeModule nodeModule) throws IOException {
-        nodeModule.registerProcessor({{ cookiecutter.processor_type.capitalize() }}Processor.TYPE,
-                (registry) -> new {{ cookiecutter.processor_type.capitalize() }}Processor.Factory());
+        nodeModule.registerProcessor({{ cookiecutter.processor_class_name }}Processor.TYPE,
+                (registry) -> new {{ cookiecutter.processor_class_name }}Processor.Factory());
     }
 
 }

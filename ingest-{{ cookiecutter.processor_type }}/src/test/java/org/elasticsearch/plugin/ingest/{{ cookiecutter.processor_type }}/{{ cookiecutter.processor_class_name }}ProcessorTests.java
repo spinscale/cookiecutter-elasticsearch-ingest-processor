@@ -29,14 +29,14 @@ import java.util.Map;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
 
-public class {{ cookiecutter.processor_type.capitalize() }}ProcessorTests extends ESTestCase {
+public class {{ cookiecutter.processor_class_name }}ProcessorTests extends ESTestCase {
 
     public void testThatProcessorWorks() throws Exception {
         Map<String, Object> document = new HashMap<>();
         document.put("source_field", "fancy source field content");
         IngestDocument ingestDocument = RandomDocumentPicks.randomIngestDocument(random(), document);
 
-        {{ cookiecutter.processor_type.capitalize() }}Processor processor = new {{ cookiecutter.processor_type.capitalize() }}Processor(randomAsciiOfLength(10), "source_field", "target_field");
+        {{ cookiecutter.processor_class_name }}Processor processor = new {{ cookiecutter.processor_class_name }}Processor(randomAsciiOfLength(10), "source_field", "target_field");
         processor.execute(ingestDocument);
         Map<String, Object> data = ingestDocument.getSourceAndMetadata();
 

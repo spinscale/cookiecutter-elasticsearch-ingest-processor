@@ -1,4 +1,4 @@
-# Elasticsearch {{ cookiecutter.processor_type.capitalize() }} Ingest Processor
+# Elasticsearch {{ cookiecutter.processor_type|replace('_', ' ')|title }} Ingest Processor
 
 Explain the use case of this processor in a TLDR fashion.
 
