@@ -17,16 +17,17 @@
 
 package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
 
+import org.elasticsearch.common.collect.MapBuilder;
 import org.elasticsearch.common.settings.Setting;
-import org.elasticsearch.common.settings.SettingsModule;
-import org.elasticsearch.node.NodeModule;
+import org.elasticsearch.ingest.Processor;
+import org.elasticsearch.plugins.IngestPlugin;
 import org.elasticsearch.plugins.Plugin;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
-public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends Plugin {
+public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends Plugin implements IngestPlugin {
 
     public static final Setting<String> YOUR_SETTING =
             new Setting<>("ingest.{{ cookiecutter.processor_type }}.setting", "foo", (value) -> value, Setting.Property.NodeScope);
@@ -36,9 +37,11 @@ public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends 
         return Arrays.asList(YOUR_SETTING);
     }
 
-    public void onModule(NodeModule nodeModule) throws IOException {
-        nodeModule.registerProcessor({{ cookiecutter.processor_type.capitalize() }}Processor.TYPE,
-                (registry) -> new {{ cookiecutter.processor_type.capitalize() }}Processor.Factory());
+    @Override
+    public Map<String, Processor.Factory> getProcessors(Processor.Parameters parameters) {
+        return MapBuilder.<String, Processor.Factory>newMapBuilder()
+                .put({{ cookiecutter.processor_type.capitalize() }}Processor.TYPE, new {{ cookiecutter.processor_type.capitalize() }}Processor.Factory())
+                .immutableMap();
     }
 
 }

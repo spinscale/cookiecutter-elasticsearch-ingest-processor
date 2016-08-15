@@ -17,11 +17,9 @@
 
 package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
 
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.ingest.RandomDocumentPicks;
 import org.elasticsearch.ingest.IngestDocument;
+import org.elasticsearch.ingest.RandomDocumentPicks;
 import org.elasticsearch.test.ESTestCase;
-import org.junit.Before;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -17,15 +17,13 @@
 
 package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
 
-import org.elasticsearch.common.Strings;
 import org.elasticsearch.ingest.AbstractProcessor;
-import org.elasticsearch.ingest.AbstractProcessorFactory;
 import org.elasticsearch.ingest.IngestDocument;
+import org.elasticsearch.ingest.Processor;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static org.elasticsearch.ingest.ConfigurationUtils.readOptionalList;
 import static org.elasticsearch.ingest.ConfigurationUtils.readStringProperty;
 
 public class {{ cookiecutter.processor_type.capitalize() }}Processor extends AbstractProcessor {
@@ -53,14 +51,15 @@ public class {{ cookiecutter.processor_type.capitalize() }}Processor extends Abs
         return TYPE;
     }
 
-    public static final class Factory extends AbstractProcessorFactory<{{ cookiecutter.processor_type.capitalize() }}Processor> {
+    public static final class Factory implements Processor.Factory {
 
         @Override
-        public {{ cookiecutter.processor_type.capitalize() }}Processor doCreate(String processorTag, Map<String, Object> config) throws Exception {
-            String field = readStringProperty(TYPE, processorTag, config, "field");
-            String targetField = readStringProperty(TYPE, processorTag, config, "target_field", "default_field_name");
+        public {{ cookiecutter.processor_type.capitalize() }}Processor create(Map<String, Processor.Factory> factories, String tag, Map<String, Object> config) 
+            throws Exception {
+            String field = readStringProperty(TYPE, tag, config, "field");
+            String targetField = readStringProperty(TYPE, tag, config, "target_field", "default_field_name");
 
-            return new {{ cookiecutter.processor_type.capitalize() }}Processor(processorTag, field, targetField);
+            return new {{ cookiecutter.processor_type.capitalize() }}Processor(tag, field, targetField);
         }
     }
 }
