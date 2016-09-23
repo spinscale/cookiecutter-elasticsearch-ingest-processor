@@ -15,7 +15,6 @@ version = '0.0.1-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'elasticsearch.esplugin'
-apply plugin: 'com.bmuschko.nexus'
 apply plugin: 'idea'
 
 esplugin {
