@@ -1,4 +1,4 @@
-# Elasticsearch {{ cookiecutter.processor_type.capitalize() }} Ingest Processor
+# Elasticsearch {{ cookiecutter.processor_type }} Ingest Processor
 
 Explain the use case of this processor in a TLDR fashion.
 
@@ -11,7 +11,7 @@ PUT _ingest/pipeline/opennlp-pipeline
   "description": "A pipeline to do whatever",
   "processors": [
     {
-      "{{ cookiecutter.processor_type }}" : {
+      "{{ cookiecutter.processor_type | replace("-", "_") }}" : {
         "field" : "my_field"
       }
     }

@@ -8,7 +8,7 @@
             "description": "_description",
             "processors": [
               {
-                "{{ cookiecutter.processor_type }}" : {
+                "{{ cookiecutter.processor_type | replace('-', '_') }}" : {
                   "field" : "field1",
                   "target_field" : "field2"
                 }

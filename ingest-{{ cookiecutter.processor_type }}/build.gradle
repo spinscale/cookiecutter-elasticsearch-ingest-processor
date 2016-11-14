@@ -20,7 +20,7 @@ apply plugin: 'idea'
 esplugin {
   name 'ingest-{{ cookiecutter.processor_type }}'
   description '{{ cookiecutter.description }}'
-  classname 'org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type | lower }}.Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin'
+  classname 'org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type | replace("-", ".") }}.Ingest{{ cookiecutter.processor_type | title | replace("-", "") }}Plugin'
 }
 
 // In this section you declare the dependencies for your production and test code

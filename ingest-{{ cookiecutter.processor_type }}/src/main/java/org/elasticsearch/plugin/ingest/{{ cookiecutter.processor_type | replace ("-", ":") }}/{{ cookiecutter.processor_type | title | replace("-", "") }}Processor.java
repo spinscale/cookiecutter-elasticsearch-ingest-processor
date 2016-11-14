@@ -15,7 +15,7 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
+package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type | replace('-', '.') }};
 
 import org.elasticsearch.ingest.AbstractProcessor;
 import org.elasticsearch.ingest.IngestDocument;
@@ -26,14 +26,14 @@ import java.util.Map;
 
 import static org.elasticsearch.ingest.ConfigurationUtils.readStringProperty;
 
-public class {{ cookiecutter.processor_type.capitalize() }}Processor extends AbstractProcessor {
+public class {{ cookiecutter.processor_type | title | replace("-", "") }}Processor extends AbstractProcessor {
 
-    public static final String TYPE = "{{ cookiecutter.processor_type }}";
+    public static final String TYPE = "{{ cookiecutter.processor_type | replace('-', '_') }}";
 
     private final String field;
     private final String targetField;
 
-    public {{ cookiecutter.processor_type.capitalize() }}Processor(String tag, String field, String targetField) throws IOException {
+    public {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(String tag, String field, String targetField) throws IOException {
         super(tag);
         this.field = field;
         this.targetField = targetField;
@@ -54,12 +54,12 @@ public class {{ cookiecutter.processor_type.capitalize() }}Processor extends Abs
     public static final class Factory implements Processor.Factory {
 
         @Override
-        public {{ cookiecutter.processor_type.capitalize() }}Processor create(Map<String, Processor.Factory> factories, String tag, Map<String, Object> config) 
+        public {{ cookiecutter.processor_type | title | replace("-", "") }}Processor create(Map<String, Processor.Factory> factories, String tag, Map<String, Object> config) 
             throws Exception {
             String field = readStringProperty(TYPE, tag, config, "field");
             String targetField = readStringProperty(TYPE, tag, config, "target_field", "default_field_name");
 
-            return new {{ cookiecutter.processor_type.capitalize() }}Processor(tag, field, targetField);
+            return new {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(tag, field, targetField);
         }
     }
 }

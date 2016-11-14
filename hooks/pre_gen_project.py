@@ -4,7 +4,7 @@ import re
 import sys
 import os
 
-REGEX = r'^[_a-z]+$'
+REGEX = r'^[-_a-z]+$'
 processor_type = '{{ cookiecutter.processor_type }}'
 
 if not re.match(REGEX, processor_type):

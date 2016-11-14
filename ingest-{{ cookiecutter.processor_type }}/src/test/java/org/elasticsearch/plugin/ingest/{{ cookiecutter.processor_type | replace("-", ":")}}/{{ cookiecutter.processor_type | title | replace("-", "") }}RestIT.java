@@ -15,7 +15,7 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
+package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type | replace('-', '.') }};
 
 import com.carrotsearch.randomizedtesting.annotations.Name;
 import com.carrotsearch.randomizedtesting.annotations.ParametersFactory;
@@ -25,9 +25,9 @@ import org.elasticsearch.test.rest.yaml.parser.ClientYamlTestParseException;
 
 import java.io.IOException;
 
-public class {{ cookiecutter.processor_type.capitalize() }}RestIT extends ESClientYamlSuiteTestCase {
+public class {{ cookiecutter.processor_type | title | replace("-", "") }}RestIT extends ESClientYamlSuiteTestCase {
 
-    public {{ cookiecutter.processor_type.capitalize() }}RestIT(@Name("yaml") ClientYamlTestCandidate testCandidate) {
+    public {{ cookiecutter.processor_type | title | replace("-", "") }}RestIT(@Name("yaml") ClientYamlTestCandidate testCandidate) {
         super(testCandidate);
     }
 

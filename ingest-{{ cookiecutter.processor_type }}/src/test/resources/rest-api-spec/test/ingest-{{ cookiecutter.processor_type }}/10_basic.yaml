@@ -8,4 +8,4 @@
         nodes.info: {}
 
     - match:  { nodes.$master.plugins.0.name: ingest-{{ cookiecutter.processor_type }} }
-    - match:  { nodes.$master.ingest.processors.0.type: {{ cookiecutter.processor_type }} }
+    - match:  { nodes.$master.ingest.processors.0.type: {{ cookiecutter.processor_type | replace('-', '_') }} }

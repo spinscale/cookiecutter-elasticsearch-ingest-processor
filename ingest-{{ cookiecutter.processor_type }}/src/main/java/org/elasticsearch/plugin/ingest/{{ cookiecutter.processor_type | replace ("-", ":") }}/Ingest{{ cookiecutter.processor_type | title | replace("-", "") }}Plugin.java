@@ -15,7 +15,7 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type }};
+package org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type | replace('-', '.') }};
 
 import org.elasticsearch.common.collect.MapBuilder;
 import org.elasticsearch.common.settings.Setting;
@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends Plugin implements IngestPlugin {
+public class Ingest{{ cookiecutter.processor_type | title | replace("-", "") }}Plugin extends Plugin implements IngestPlugin {
 
     public static final Setting<String> YOUR_SETTING =
             new Setting<>("ingest.{{ cookiecutter.processor_type }}.setting", "foo", (value) -> value, Setting.Property.NodeScope);
@@ -40,7 +40,7 @@ public class Ingest{{ cookiecutter.processor_type.capitalize() }}Plugin extends 
     @Override
     public Map<String, Processor.Factory> getProcessors(Processor.Parameters parameters) {
         return MapBuilder.<String, Processor.Factory>newMapBuilder()
-                .put({{ cookiecutter.processor_type.capitalize() }}Processor.TYPE, new {{ cookiecutter.processor_type.capitalize() }}Processor.Factory())
+                .put({{ cookiecutter.processor_type | title | replace("-", "") }}Processor.TYPE, new {{ cookiecutter.processor_type | title | replace("-", "") }}Processor.Factory())
                 .immutableMap();
     }
 
