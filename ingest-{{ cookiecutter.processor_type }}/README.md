@@ -6,7 +6,7 @@ Explain the use case of this processor in a TLDR fashion.
 
 
 ```
-PUT _ingest/pipeline/opennlp-pipeline
+PUT _ingest/pipeline/{{ cookiecutter.processor_type }}-pipeline
 {
   "description": "A pipeline to do whatever",
   "processors": [
@@ -18,7 +18,7 @@ PUT _ingest/pipeline/opennlp-pipeline
   ]
 }
 
-PUT /my-index/my-type/1?pipeline_id=opennlp-pipeline
+PUT /my-index/my-type/1?pipeline={{ cookiecutter.processor_type }}-pipeline
 {
   "my_field" : "Some content"
 }
