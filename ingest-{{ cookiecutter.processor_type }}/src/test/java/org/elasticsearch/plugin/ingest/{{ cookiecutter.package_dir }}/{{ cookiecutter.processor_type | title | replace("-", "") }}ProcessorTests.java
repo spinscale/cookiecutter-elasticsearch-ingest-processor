@@ -34,7 +34,7 @@ public class {{ cookiecutter.processor_type | title | replace("-", "") }}Process
         document.put("source_field", "fancy source field content");
         IngestDocument ingestDocument = RandomDocumentPicks.randomIngestDocument(random(), document);
 
-        {{ cookiecutter.processor_type | title | replace("-", "") }}Processor processor = new {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(randomAsciiOfLength(10), "source_field", "target_field");
+        {{ cookiecutter.processor_type | title | replace("-", "") }}Processor processor = new {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(randomAlphaOfLength(10), "source_field", "target_field");
         processor.execute(ingestDocument);
         Map<String, Object> data = ingestDocument.getSourceAndMetadata();
 
