@@ -17,9 +17,6 @@ apply plugin: 'java'
 apply plugin: 'elasticsearch.esplugin'
 apply plugin: 'idea'
 
-// this is temporal and will be fixed in 6.0
-ext.projectSubstitutions = [:]
-
 // license of this project
 licenseFile = rootProject.file('LICENSE.txt')
 // copyright notices
