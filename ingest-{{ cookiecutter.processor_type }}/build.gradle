@@ -14,8 +14,8 @@ group = 'org.elasticsearch.plugin.ingest'
 version = '0.0.1-SNAPSHOT'
 
 apply plugin: 'java'
-apply plugin: 'elasticsearch.esplugin'
 apply plugin: 'idea'
+apply plugin: 'elasticsearch.esplugin'
 
 // license of this project
 licenseFile = rootProject.file('LICENSE.txt')
