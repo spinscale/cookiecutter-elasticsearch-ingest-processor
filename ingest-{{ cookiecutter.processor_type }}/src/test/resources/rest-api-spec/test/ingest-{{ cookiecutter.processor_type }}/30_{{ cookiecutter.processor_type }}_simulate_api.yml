@@ -1,0 +1,27 @@
+---
+"Test {{ cookiecutter.processor_type }} processor with simulate API":
+  - do:
+      ingest.put_pipeline:
+        id: "my_pipeline"
+        body:  >
+          {
+            "description": "_description",
+            "processors": [
+              {
+                "{{ cookiecutter.processor_type | replace('-', '_') }}" : {
+                  "field" : "field1",
+                  "target_field" : "field2"
+                }
+              }
+            ]
+          }
+  - match: { acknowledged: true }
+
+  - do:
+      ingest.simulate:
+        id: "my_pipeline"
+        body: {docs: [ { _source: { field1: "some content here" } } ] }
+
+  - length: { docs.0.doc._source: 2 }
+  - match: { docs.0.doc._source.field1: "some content here" }
+  - match: { docs.0.doc._source.field2: "some content here" }
