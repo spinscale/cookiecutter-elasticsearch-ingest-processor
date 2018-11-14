@@ -35,8 +35,7 @@ public class {{ cookiecutter.processor_type | title | replace("-", "") }}Process
         IngestDocument ingestDocument = RandomDocumentPicks.randomIngestDocument(random(), document);
 
         {{ cookiecutter.processor_type | title | replace("-", "") }}Processor processor = new {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(randomAlphaOfLength(10), "source_field", "target_field");
-        processor.execute(ingestDocument);
-        Map<String, Object> data = ingestDocument.getSourceAndMetadata();
+        Map<String, Object> data = processor.execute(ingestDocument).getSourceAndMetadata();
 
         assertThat(data, hasKey("target_field"));
         assertThat(data.get("target_field"), is("fancy source field content"));

@@ -40,10 +40,11 @@ public class {{ cookiecutter.processor_type | title | replace("-", "") }}Process
     }
 
     @Override
-    public void execute(IngestDocument ingestDocument) throws Exception {
+    public IngestDocument execute(IngestDocument ingestDocument) throws Exception {
         String content = ingestDocument.getFieldValue(field, String.class);
         // TODO implement me!
         ingestDocument.setFieldValue(targetField, content);
+        return ingestDocument;
     }
 
     @Override
