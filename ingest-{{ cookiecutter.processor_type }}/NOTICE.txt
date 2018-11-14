@@ -1,2 +1,2 @@
 {{cookiecutter.developer_name}}
-Copyright 2017- {{cookiecutter.developer_name}}
+Copyright 2018- {{cookiecutter.developer_name}}
