@@ -24,7 +24,7 @@ noticeFile = rootProject.file('NOTICE.txt')
 
 esplugin {
   name 'ingest-{{ cookiecutter.processor_type }}'
-  description '{{ cookiecutter.description }}'
+  description '{{ cookiecutter.description | replace("'", "\\'") }}'
   classname 'org.elasticsearch.plugin.ingest.{{ cookiecutter.processor_type | replace("-", ".") }}.Ingest{{ cookiecutter.processor_type | title | replace("-", "") }}Plugin'
   // license of the plugin, may be different than the above license
   licenseFile rootProject.file('LICENSE.txt')
