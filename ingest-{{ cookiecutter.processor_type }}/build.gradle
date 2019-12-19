@@ -1,3 +1,7 @@
+// remove this two imports from 7.x
+import org.elasticsearch.gradle.testclusters.TestClustersRegistry
+import org.elasticsearch.gradle.testclusters.TestClustersPlugin
+
 buildscript {
   repositories {
     mavenLocal()
@@ -54,3 +58,14 @@ thirdPartyAudit.enabled = false
 // Uncomment this to skip license header checks
 // licenseHeaders.enabled = false
 
+// remove all these lines till EOF with the release of 7.x
+configurations.whenObjectAdded { c ->
+  if (c.name == 'elasticsearch_7.5.0_integ_test_zip_null') {
+    project.dependencies.add('elasticsearch_7.5.0_integ_test_zip_null', 'org.elasticsearch.distribution.integ-test-zip:elasticsearch:7.5.0@zip')
+  }
+}
+
+TestClustersRegistry registry = project.rootProject.extensions.create("testClustersRegistry", TestClustersRegistry)
+TestClustersPlugin.configureClaimClustersHook(project.gradle, registry)
+TestClustersPlugin.configureStartClustersHook(project.gradle, registry)
+TestClustersPlugin.configureStopClustersHook(project.gradle, registry)
