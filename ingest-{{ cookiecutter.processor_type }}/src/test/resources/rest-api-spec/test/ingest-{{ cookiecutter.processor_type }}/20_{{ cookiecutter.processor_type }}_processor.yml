@@ -20,7 +20,6 @@
   - do:
       index:
         index: test
-        type: test
         id: 1
         pipeline: "my_pipeline"
         body: {field1: "my_value"}
@@ -28,7 +27,6 @@
   - do:
       get:
         index: test
-        type: test
         id: 1
   - match: { _source.field1: "my_value" }
   - match: { _source.field2: "my_value" }
