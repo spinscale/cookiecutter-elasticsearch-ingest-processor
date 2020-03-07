@@ -25,6 +25,13 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'elasticsearch.esplugin'
 
+// remove this in 7.6.2
+restResources {
+  restApi {
+    includeCore '*'
+  }
+}
+
 // license of this project
 licenseFile = rootProject.file('LICENSE.txt')
 // copyright notices
