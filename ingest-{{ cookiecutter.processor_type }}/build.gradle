@@ -49,14 +49,12 @@ dependencies {
 checkstyleMain.enabled = true
 checkstyleTest.enabled = true
 
-// FIXME dependency license check needs to be enabled
+// these are all features used within the Elasticsearch codebase
+// but requires some more work to make it work in plugins
+// so they are disabled to get up and running faster
 dependencyLicenses.enabled = false
-
-// FIXME thirdparty audit needs to be enabled
 thirdPartyAudit.enabled = false
-
-// Uncomment this to skip license header checks
-// licenseHeaders.enabled = false
+licenseHeaders.enabled = false
 
 // disable validation of pom creation, only needed for sonatype uploads
 validateNebulaPom.enabled = false
