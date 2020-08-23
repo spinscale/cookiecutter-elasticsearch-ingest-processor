@@ -33,8 +33,9 @@ public class {{ cookiecutter.processor_type | title | replace("-", "") }}Process
     private final String field;
     private final String targetField;
 
-    public {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(String tag, String field, String targetField) throws IOException {
-        super(tag);
+    public {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(String tag, String description, String field,
+                 String targetField) throws IOException {
+        super(tag, description);
         this.field = field;
         this.targetField = targetField;
     }
@@ -55,12 +56,12 @@ public class {{ cookiecutter.processor_type | title | replace("-", "") }}Process
     public static final class Factory implements Processor.Factory {
 
         @Override
-        public {{ cookiecutter.processor_type | title | replace("-", "") }}Processor create(Map<String, Processor.Factory> factories, String tag, Map<String, Object> config) 
-            throws Exception {
+        public {{ cookiecutter.processor_type | title | replace("-", "") }}Processor create(Map<String, Processor.Factory> factories, String tag,
+               String description, Map<String, Object> config) throws Exception {
             String field = readStringProperty(TYPE, tag, config, "field");
             String targetField = readStringProperty(TYPE, tag, config, "target_field", "default_field_name");
 
-            return new {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(tag, field, targetField);
+            return new {{ cookiecutter.processor_type | title | replace("-", "") }}Processor(tag, description, field, targetField);
         }
     }
 }
