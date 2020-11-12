@@ -20,8 +20,7 @@ version = '0.0.1-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'elasticsearch.esplugin'
-apply plugin: 'elasticsearch.testclusters'
-apply plugin: 'elasticsearch.rest-resources'
+apply plugin: 'elasticsearch.yaml-rest-test'
 
 // license of this project
 licenseFile = rootProject.file('LICENSE.txt')
@@ -44,7 +43,8 @@ esplugin {
 dependencies {
   compile 'org.elasticsearch:elasticsearch:{{ cookiecutter.elasticsearch_version }}'
 
-  testCompile 'org.elasticsearch.test:framework:{{ cookiecutter.elasticsearch_version }}'
+  // the yaml tests require a log4j2 dependency, otherwise a dependency is thrown on startup
+  yamlRestTestImplementation 'org.apache.logging.log4j:log4j-core:2.11.1'
 }
 
 // Set to false to not use elasticsearch checkstyle rules
@@ -57,6 +57,7 @@ checkstyleTest.enabled = true
 dependencyLicenses.enabled = false
 thirdPartyAudit.enabled = false
 licenseHeaders.enabled = false
+loggerUsageCheck.enabled = false
 
 // disable validation of pom creation, only needed for sonatype uploads
 validateNebulaPom.enabled = false
