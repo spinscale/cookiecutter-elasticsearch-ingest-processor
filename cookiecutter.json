@@ -3,5 +3,5 @@
   "package_dir": "{{cookiecutter.processor_type | replace('-', '/')}}",
   "description" : "Ingest processor that is doing something awesome",
   "developer_name" : "YOUR REAL NAME",
-  "elasticsearch_version" : "7.11.2"
+  "elasticsearch_version" : "7.12.0"
 }
