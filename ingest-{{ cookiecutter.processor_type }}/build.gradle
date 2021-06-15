@@ -1,8 +1,7 @@
 buildscript {
   repositories {
-    mavenLocal()
     mavenCentral()
-    jcenter()
+    gradlePluginPortal()
   }
 
   dependencies {
@@ -11,7 +10,7 @@ buildscript {
 }
 
 repositories {
-  mavenLocal()
+  mavenCentral()
 }
 
 group = 'org.elasticsearch.plugin.ingest'
