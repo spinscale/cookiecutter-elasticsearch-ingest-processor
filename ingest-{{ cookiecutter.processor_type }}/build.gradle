@@ -29,6 +29,8 @@ apply plugin: 'idea'
 apply plugin: 'elasticsearch.esplugin'
 apply plugin: 'elasticsearch.testclusters'
 
+sourceCompatibility = '11'
+
 esplugin {
   name = 'ingest-{{ cookiecutter.processor_type }}'
   description = '{{ cookiecutter.description | replace("'", "\\'") }}'
