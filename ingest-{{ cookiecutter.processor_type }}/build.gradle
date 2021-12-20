@@ -46,9 +46,6 @@ esplugin {
 // they are just here as an example
 dependencies {
   implementation "org.elasticsearch:elasticsearch:${elasticsearchVersion}"
-
-  // the yaml tests require a log4j2 dependency, otherwise a dependency is thrown on startup
-  runtimeOnly 'org.apache.logging.log4j:log4j-core:2.11.1'
 }
 
 // ignore javadoc linting errors for now
