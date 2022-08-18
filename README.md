@@ -1,4 +1,6 @@
-# A cookiecutter template for an Elasticsearch Ingest Processor
+# THIS IS NO LONGER MAINTAINED AND ARCHIVED
+
+## A cookiecutter template for an Elasticsearch Ingest Processor
 
 This should simplify the creation of Elasticsearch Ingest Processors, this template will set up
 
